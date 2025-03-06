@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+/* 🌌 Static Background Image (Always at the Bottom) */
+#static-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* 🔥 Dynamic Background Overlay */
+/* 🔥 Background Overlay for Dynamic Effects */
+#bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2; /* Behind content but above static background */
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.5s ease-in-out, filter 1.5s ease-in-out;
+}
+
+.galaxy-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw; /* Adjust size */
+  height: 100vh; /* Adjust size */
+  z-index: -2; /* Behind the content but above the static background */
+  pointer-events: none; /* Prevents interaction with the galaxy image */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 1s ease-in-out; /* Smooth transition */
+}
+
+/* 🌌 Universe Video - Runs Separately for Each Slide */
+.universe-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  z-index: -2; /* Below planet but above the static background */
+}
+
+/* 🚀 Slides */
+.astro-slider {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slide.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.planet-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45vw; /* Adjusts dynamically based on viewport */
+  height: 45vw;
+  max-width: 550px;
+  max-height: 550px;
+}
+
+.planet {
+  position: absolute;
+  overflow: visible;
+  padding: 0;
+  border-radius: 50%;
+  transform-origin: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#sun .planet {
+  filter: drop-shadow(0 0 35px rgba(255, 215, 72, 0.9)) !important;
+}
+
+/* ☿ Mercury - Greyish Glow */
+#mercury .planet,
+#venus .planet,
+#earth .planet,
+#mars .planet {
+  filter: drop-shadow(0px 0px 50px rgba(200, 200, 200, 0.8)) !important;
+}
+🌞 Special Fix for Sun Image */
+
+/* 📌 Responsive Text Inside Planet */
+.content {
+  position: absolute;
+  width: 80%; /* Ensures text stays inside planet */
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-family: "Bebas Neue", sans-serif;
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+  font-size: 8vw; /* Adjusts based on screen width */
+  margin: 0;
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+
+p {
+  font-family: "Manrope", sans-serif;
+  text-transform: uppercase;
+  font-size: 1vw;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+/* Navigation Buttons */
+.prev-btn,
+.next-btn {
+  position: absolute;
+  bottom: 5vh;
+  font-size: 2vw;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+/* Adjust button placement */
+.prev-btn {
+  left: 5vw;
+}
+.next-btn {
+  right: 5vw;
+}
+
+/* 📱 Responsive Breakpoints */
+@media (max-width: 768px) {
+  .planet-container {
+    width: 65vw;
+    height: 65vw;
+  }
+
+  h1 {
+    font-size: 6vw;
+  }
+
+  p {
+    font-size: 3vw;
+  }
+
+  .prev-btn,
+  .next-btn {
+    font-size: 3vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .planet-container {
+    width: 75vw;
+    height: 75vw;
+  }
+
+  h1 {
+    font-size: 7vw;
+  }
+
+  p {
+    font-size: 4vw;
+  }
+
+  .prev-btn,
+  .next-btn {
+    font-size: 4vw;
+  }
+}
