@@ -20,15 +20,13 @@ body {
   z-index: -3;
 }
 
-/* 🔥 Dynamic Background Overlay */
-/* 🔥 Background Overlay for Dynamic Effects */
 #bg-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2; /* Behind content but above static background */
+  z-index: -1; 
   pointer-events: none;
   background-size: cover;
   background-position: center;
