@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     mars: {
       gradient:
-        "radial-gradient(circle, rgba(196, 105, 105, 0.3) 0%, rgb(255, 255, 255) 100%)",
+        "radial-gradient(circle, rgba(255, 80, 80, 0.3) 0%, rgb(250, 227, 227) 100%)",
       filter: "contrast(1.3) brightness(1.1) saturate(1.2)",
       blend: "multiply",
     },
